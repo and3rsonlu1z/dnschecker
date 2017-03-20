@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+
+<title>DNS Checker v0.01</title>
+</head>
+<body>
+<div class="container">
+<img src="http://media.idownloadblog.com/wp-content/uploads/2016/03/dns.jpg" alt="LOGO" style="width:150px;height:100px;">
+<h1>DNS Checker v0.01</h1>
+<p>This tool is meant to confirm DNS records for DOMAINS / ZONES WE HOST.</p>
+<!--- FORM -->
+<form action="/" method="POST">
+  INSERT DOMAIN (or IP for rDNS) HERE:<br>
+  <input type="text" name="domain_html" value=""><br>
+  <br>SELECT RECORD:
+  <select name="record_html":><br>
+  <option value="any">ALL</option>
+  <option value="A">A</option>
+  <option value="TXT">TXT</option>
+  <option value="CNAME">CNAME</option>
+  <option value="MX">MX</option>
+  <option value="NS">NS</option>
+  <option value="SOA">SOA</option>
+  <option value="-x">rDNS</option><br>
+  <input type="submit" value="Submit" class="button">
+  </select>
+</form><br>
+<table class="table table-hover table-striped">
+      {% if data %}
+       {% for key,row in data.iteritems() %}
+	<tr class="danger">
+		<td><b>{{ key }}</b></td>
+	</tr>
+	<tr>
+		{% for entry in row['output'] %}
+			<tr><td>{{ entry }}</td></tr>
+		{% endfor %}
+	</tr>
+	{% endfor %}
+    {% endif %}
+</table>
+</div>
+</body>
+</html>
+
