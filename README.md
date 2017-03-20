@@ -1,3 +1,7 @@
+## SAMPLE:
+
+![SAMPLE](/SAMPLE.PNG?raw=true "SAMPLE")
+
 ## AUTHOR: 
 
 Jerome Sheed				          
