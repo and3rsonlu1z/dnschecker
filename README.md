@@ -1,6 +1,6 @@
 ## SAMPLE:
 
-![SAMPLE](/SAMPLE.PNG?raw=true "SAMPLE")
+![SAMPLE](/SAMPLE.PNG "SAMPLE")
 
 ## AUTHOR: 
 
